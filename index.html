@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Motion Car Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add some basic styles */
+        .charts {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        canvas {
+            border: 1px solid #ccc;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 48%;
+        }
+
+        .chart-container p {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 5px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Linear Motion Car Game</h1>
+        <div class="track">
+            <div id="road" class="road">
+                <div class="lane-marker"></div>
+                <div class="lane-marker"></div>
+                <div class="lane-marker"></div>
+                <div class="lane-marker"></div>
+            </div>
+            <div id="car" class="car"></div>
+        </div>
+        <div class="controls">
+            <button id="decreaseSpeed">Decrease Speed</button>
+            <button id="increaseSpeed">Increase Speed</button>
+            <button id="hornButton">Horn</button>
+        </div>
+        <div class="info">
+            <p>Speed: <span id="speed">0</span> km/h</p>
+            <p>Distance Traveled: <span id="distance">0</span> meters</p>
+        </div>
+        <div class="speedometer">
+            <div class="speedometer-gauge">
+                <div id="needle"></div>
+            </div>
+            <p>Speed: <span id="speedometer-speed">0</span> km/h</p>
+        </div>
+        <div class="charts">
+            <div class="chart-container">
+                <p>Speed vs. Time</p>
+                <canvas id="speedGraph" width="800" height="300"></canvas>
+            </div>
+            <div class="chart-container">
+                <p>Acceleration vs. Time</p>
+                <canvas id="accelerationGraph" width="800" height="300"></canvas>
+            </div>
+        </div>
+    </div>
+    <audio id="increaseSound" src="increaseSound.mp3"></audio>
+    <audio id="decreaseSound" src="decreaseSound.mp3"></audio>
+    <audio id="hornSound" src="hornSound.mp3"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
